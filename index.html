@@ -1,1 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> ChatBot </title>
+    <style>
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height:100vh;
+    overflow: hidden;
+    position: relative;
+    background-color: darkcyan;
+}
+.box{
+    width: 100%;
+    height: 350px;
+    box-shadow: 5px 5px 20px #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+}
+.top{
+    width: 100%;
+    height: 80px;
+    background:teal;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.top h1{
+    margin: 0;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+    font-family: fantasy;
+}
+.mid{
+    width: 100%;
+    height: 150px;
+    background: burlywood;
+}
+.mid .chat{
+    width: 100%;
+}
+.mid .chat h2{
+    margin: 0;
+    font-size: 20px;
+    color: black;
+    padding:30px 20px;
+    text-align: center;
+}
+.mid .chat p{
+    margin: 0;
+    height: 30px;
+    font-size: 20px;
+    color: firebrick;
+    text-align: center;
+    background-color:rosybrown;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+.input{
+    height:100%;
+    width: 100%;
+    overflow: hidden;
+    text-transform: lowercase;
+}
+.input input{
+    width: 100%;
+    height: 110px;
+    outline: none;
+    border: none;
+    padding-left: 30px;
+    padding-top:0;
+    font-family: monospace;
+    font-size: 25px;
+    background: bisque;
+    text-transform: lowercase;
+}
+    </style>
+</head>
+<body>
 
+    <div class="box">
+<div style="text-align: center;" class="top">
+    <h1>0gb Tech chat bot</h1>
+</div>
+<div class="mid">
+    <div class="chat">
+        <h2>Answers Are Below</h2>
+        <p id="chatLog">Let's Chat</p>
+    </div>
+</div>
+    <div class="input">
+    <input type="text" id="userBox"onkeydown="if(event.keyCode == 13){ talk() }"placeholder="Type A Message....">
+    </div>
+    </div>
+
+    <script>
+function talk(){
+    var know ={
+        "hi":"Hello",
+        "hai": "hello hai",
+        "hello" : "hey how are you ?",
+        "fine" : "thats gud",
+        "who are you ?": "Iam 0gbTech bot created by Zabi",
+        "how are you ?":"Great !",
+        "how are you ?":"i am gud",
+        "bye":"Have A Nice Day !",
+        "hello":"Hi , Whats Up buddy...!",
+        "where are you from ?" :"i am from Tamilnadu,Hosur_635109",
+        "can you sing me a song ?":"Ring around the roses pocket full of poses",
+        "ok":"hmmm...",
+        "hey":"your rude have a kindly approach",
+        
+    };
+    var user = document.getElementById('userBox').value;
+    user.toLowerCase();
+    document.getElementById('chatLog').innerHTML = user + "<br>";
+    if(user in know){
+        document.getElementById('chatLog').innerHTML = know[user] + "<br>";
+    }else{
+        document.getElementById('chatLog').innerHTML = "I do not understand .";
+    }
+}
+    </script>
+</body>
+</html>
