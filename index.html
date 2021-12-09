@@ -97,37 +97,80 @@ body{
     </div>
 </div>
     <div class="input">
-    <input type="text" id="userBox"onkeydown="if(event.keyCode == 13){ talk() }"placeholder="Type A Message....">
+    <input type="text" style="text-transform:lowercase" id="userBox"onkeydown="if(event.keyCode == 13){ talk() }"placeholder="Type A Message....">
     </div>
     </div>
 
     <script>
 function talk(){
     var know ={
-        "hi":"Hello",
-        "hai": "hello hai",
+        "hi":"Hello ! how are you today ?",
+        "hai": "hello hai, how are you ?",
         "hello" : "hey how are you ?",
-        "fine" : "thats gud",
-        "who are you ?": "Iam 0gbTech bot created by Zabi",
-        "how are you ?":"Great !",
-        "how are you ?":"i am gud",
+        "fine" : "thats gud ! do you know zabi ?",
+        "iamgud":"great..! do you know zabi ?",
+        "gud":"fine..! do you know zabi ?",
+        "notbad":"hope everything will be fine",
+        "iamnotfeelinggud":"everything will be fine, i will pray for you dear",
+        "iamnotgud":"i will pray for you",
+        "thankyou":"thats ok dear take it easy",
+        "thankyousomuch":"thats ok dear",
+        "whoareyou": "Iam 0gbTech bot created by Zabi",
+        "howareyou":"Great !",
+        "howareyou":"i am gud",
         "bye":"Have A Nice Day !",
         "hello":"Hi , Whats Up buddy...!",
-        "where are you from ?" :"i am from Tamilnadu,Hosur_635109",
-        "can you sing me a song ?":"Ring around the roses pocket full of poses",
+        "whereareyoufrom?" :"i am from Tamilnadu,Hosur_635109",
+        "canyousingmeasong?":"Ring around the roses pocket full of poses, Ashes ! Ashes ! we all fall down.",
+        "sing":"Daisy, Daisy give me your answer do.I'm half crazy all for the love of you",
+        "sing":"Daisy, Daisy give me your answer do.I'm half crazy all for the love of you",
+        "canyousing?":"Ring around the roses pocket full of poses, Ashes ! Ashes ! we all fall down.",
         "ok":"hmmm...",
         "hey":"your rude have a kindly approach",
+        "hadyourbreakfast?":"yes a bit of electricity",
+        "zabi":"my idiot master",
+        "whoiszabi":"oh my boss, do you know him ?",
+        "yes":"alright...!",
+        "whereareyou":"I am on Internet residing in Github",
+        "no":"ok he is my boss he has a youtube channel * 0gb Tech * kindly subscribe it & support him",
+        "tellsomething":"ok... i can sing a song if you type sing",
+        "tellmesomething":"i can sing a song if you type sing",
+        "ohisit":"yes it is",
+        "isit":"yes it is",
+        "then":"ask me something",
+        "whatsup":"same old things...!",
+        "what":"pardon",
+        "whoisyourmaster":"zabi",
         
-    };
+    };  
+    
+  
     var user = document.getElementById('userBox').value;
-    user.toLowerCase();
+    var lowercase=user.toLowerCase();
+    var spacermv=lowercase.replace(/\s/g,"");
+    var fin=spacermv.replace(/[^a-z]/g, "");
+
     document.getElementById('chatLog').innerHTML = user + "<br>";
-    if(user in know){
-        document.getElementById('chatLog').innerHTML = know[user] + "<br>";
-    }else{
-        document.getElementById('chatLog').innerHTML = "I do not understand .";
+    if(fin in know){
+        document.getElementById('chatLog').innerHTML = know[fin] + "<br>";
+    }
+    else if (isNaN(fin) && fin.length < 2){
+         document.getElementById('chatLog').innerHTML = "its just a letter doesnt make any sense, type proper English";
+        
+    }
+    else if (typeof fin && fin.length < 2 ) {
+         document.getElementById('chatLog').innerHTML= "its just a number doesnt make any sense";
+    }
+    else{
+        document.getElementById('chatLog').innerHTML = "I do not understand, either my master didnt thought me or try with proper english";
     }
 }
     </script>
 </body>
 </html>
+
+
+
+
+
+
